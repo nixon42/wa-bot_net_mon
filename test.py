@@ -10,7 +10,7 @@ data = RequestData(
     'up'
 )
 
-res = requests.get(f'http://127.0.0.1:{CONFIG["http_port"]}/?TimeAndDate={data.time_and_date}&DeviceName={
-                   data.device_name}&DeviceFirstAddress={data.device_first_address}&DeviceStatus={data.device_status}')
+res = requests.get(
+    f"http://127.0.0.1:{CONFIG['http_port']}/?params={data.device_name}%3B{data.device_first_address}%3B{data.device_status}")
 
 print(res.json())

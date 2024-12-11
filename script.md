@@ -1,2 +1,1 @@
-## place this on dude notificaion script
-http://127.0.0.1:8801/?TimeAndDate=[TimeAndDate]&DeviceName=[Device.Name]&DeviceFirstAddress=[Device.FirstAddress]&DeviceStatus=[Service.Status]
+/tool fetch "http://192.168.1.6:8801/?params=[Device.Name]%3B[Device.FirstAddress]%3B[Service.Status]" keep-result=no

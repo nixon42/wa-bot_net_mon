@@ -19,18 +19,19 @@ class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
             query_params = urllib.parse.parse_qs(parsed_path.query)
 
             # Check if all required parameters exist
-            required_params = ['TimeAndDate', 'DeviceName',
-                               'DeviceFirstAddress', 'DeviceStatus']
+            required_params = ['params']
             if not all(param in query_params for param in required_params):
                 self.send_error(400, "Missing required parameters")
                 return
 
+            params = query_params['params'][0]
+            param_list = params.split(';')
             # Create RequestData object
             request_data = RequestData(
-                query_params['TimeAndDate'][0],
-                query_params['DeviceName'][0],
-                query_params['DeviceFirstAddress'][0],
-                query_params['DeviceStatus'][0]
+                '',
+                param_list[0],
+                param_list[1],
+                param_list[2]
             )
 
             # Execute callback if set

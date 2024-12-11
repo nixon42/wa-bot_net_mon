@@ -1,3 +1,4 @@
 venv
 __pycache__
 set_env.prop.sh
+my.conf.d
