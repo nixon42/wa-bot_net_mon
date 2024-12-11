@@ -9,7 +9,7 @@ NOTIFICATION_TEMPLATE = """
     !!!!! NOTIFICATION !!!!!     
 *******************************
 
-📍 *NETWORK*    : {network_name}
+📍 *AREA*    : {network_name}
 🎯 *CLIENTS*    : {clients}
 🔧 *STATUS*     : {status}
 ⏰ *TIME*       : {time}
