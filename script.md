@@ -1,1 +1,1 @@
-/tool fetch "http://192.168.1.6:8801/?params=[Device.Name]%3B[Device.FirstAddress]%3B[Service.Status]" keep-result=no
+:local urlencode [:parse [/file get [/file find name="urlencode.fnc"] contents] ];:local raw "http://192.168.1.6:8807/?params=[Device.Name]%3B[Device.FirstAddress]%3B[Service.Status]";:local url [$urlencode this=$raw];/tool fetch $url keep-result=no;

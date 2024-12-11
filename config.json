@@ -1,3 +1,4 @@
 {
-    "http_port": 8807
+    "http_port": 8807,
+    "thresold": 0.75
 }

@@ -2,6 +2,7 @@ from .model import RequestData, LocalTable
 from .util import print_log
 from .db import Database
 from .notification import send_notification, NOTIFICATION_TEMPLATE
+from .config import THRESOLD
 import datetime
 
 
@@ -52,7 +53,12 @@ def is_network_status(db: Database, network_name: str, expected_status: str) -> 
     """
     devices = db.fetch_by_network_name(network_name)
     print_log(f'network : {devices}')
-    result = all(device.status == expected_status for device in devices)
+    # result = all(device.status == expected_status for device in devices)
+    down_count = sum(1 for device in devices if device.status == 'down')
+    total_devices = len(devices)
+    # Check if the proportion of down devices exceeds or equals the threshold
+    result = down_count / total_devices >= THRESOLD
+
     print_log(f'network check result: {result}')
     return result
 

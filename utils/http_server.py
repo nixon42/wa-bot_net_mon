@@ -3,6 +3,7 @@ import socketserver
 import urllib.parse
 import json
 from .model import RequestData
+from .util import print_log
 
 
 class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
@@ -25,6 +26,7 @@ class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
                 return
 
             params = query_params['params'][0]
+            print_log(f'got params : {params}')
             param_list = params.split(';')
             # Create RequestData object
             request_data = RequestData(
